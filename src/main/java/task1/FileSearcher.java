@@ -13,7 +13,9 @@ import java.util.regex.Pattern;
 @Getter
 public class FileSearcher  {
     private ArrayList<File> files = new ArrayList<>();
-    private final String outputPath ="/home/daniil/IdeaProjects/doczila/output.txt";
+    private static final String OUTPUT_PATH ="output.txt";
+
+
     public void searcher(File directory){
         for (File file: directory.listFiles()) {
             if(file.isFile()){
@@ -25,7 +27,7 @@ public class FileSearcher  {
     }
     public void writeResult() {
         sortFiles();
-        try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(outputPath))){
+        try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(OUTPUT_PATH))){
             for (File file: files) {
                 try(BufferedReader bufferedReader = new BufferedReader(new FileReader(file))){
                     while (bufferedReader.ready()){
@@ -45,6 +47,9 @@ public class FileSearcher  {
                 return o1.getName().compareTo(o2.getName());
             }
         };
-        Collections.sort(files,fileComparator);
+        files.sort(fileComparator);
+    }
+    public boolean isExit(File file){
+        return file.isFile() || file.isDirectory();
     }
 }

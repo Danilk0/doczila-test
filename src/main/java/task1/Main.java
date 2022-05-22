@@ -1,12 +1,23 @@
 package task1;
 import java.io.File;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args){
-        var file = new File("src/main/java/task1/test");
+    public static void inputMethod(){
+        Scanner scanner=new Scanner(System.in);
         var fileSearcher = new FileSearcher();
-        fileSearcher.searcher(file);
-        fileSearcher.getFiles().stream().forEach(System.out::println);;
-        fileSearcher.writeResult();
+        System.out.println("Input file path: ");
+        String path = scanner.next();
+        if(fileSearcher.isExit(new File(path))){
+            var file = new File(path);
+            fileSearcher.searcher(file);
+            fileSearcher.getFiles().stream().forEach(System.out::println);;
+            fileSearcher.writeResult();
+        }else{
+            inputMethod();
+        }
+    }
+    public static void main(String[] args){
+        inputMethod();
     }
 }
