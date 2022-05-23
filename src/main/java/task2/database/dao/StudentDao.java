@@ -1,17 +1,15 @@
-package task2.database.repository;
+package task2.database.dao;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import task2.database.entety.Student;
 import task2.database.util.HikariCPDataSource;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class StudentRepository implements CrudRepository<Student,Integer> {
+public class StudentDao implements CrudDao<Student,Integer> {
     private static final String SAVE_SQL= """
             insert into student(name, second_name, surname, birth_date, "group") 
             values (?,?,?,?,?);
