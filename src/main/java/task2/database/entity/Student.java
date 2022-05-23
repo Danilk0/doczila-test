@@ -1,4 +1,4 @@
-package task2.database.entety;
+package task2.database.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
 

@@ -1,7 +1,7 @@
 package task2.database.dao;
 
 import org.springframework.stereotype.Repository;
-import task2.database.entety.Student;
+import task2.database.entity.Student;
 import task2.database.util.HikariCPDataSource;
 
 import java.sql.*;
