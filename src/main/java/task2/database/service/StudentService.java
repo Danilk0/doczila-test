@@ -3,19 +3,17 @@ package task2.database.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import task2.database.entety.Student;
-import task2.database.repository.StudentRepository;
+import task2.database.dao.StudentDao;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
 public class StudentService {
 
-    private final StudentRepository studentRepository;
+    private final StudentDao studentRepository;
 
     @Autowired
-    public StudentService(StudentRepository studentRepository) {
+    public StudentService(StudentDao studentRepository) {
         this.studentRepository = studentRepository;
     }
 
